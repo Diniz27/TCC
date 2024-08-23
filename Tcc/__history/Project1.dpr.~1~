@@ -1,0 +1,16 @@
+program Project1;
+
+uses
+  Vcl.Forms,
+  UFrmPedVend in 'UFrmPedVend.pas' {FrmPedVend},
+  UFrmPrincipal in 'UFrmPrincipal.pas' {FrmPrincipal};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TFrmPrincipal, FrmPrincipal);
+  //  Application.CreateForm(TFrmPedVend, FrmPedVend);
+  Application.Run;
+end.

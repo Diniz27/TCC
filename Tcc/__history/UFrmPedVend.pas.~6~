@@ -1,0 +1,107 @@
+unit UFrmPedVend;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask,
+  Vcl.DBCtrls, JvComponentBase, JvFormAutoSize;
+
+type
+  TFrmPedVend = class(TForm)
+    PnlFiltro: TPanel;
+    PnlProduto: TPanel;
+    Image1: TImage;
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    Label2: TLabel;
+    Label3: TLabel;
+    DBEdit3: TDBEdit;
+    DBEdit4: TDBEdit;
+    Label4: TLabel;
+    Label5: TLabel;
+    DBMemo1: TDBMemo;
+    JvFormAutoSize1: TJvFormAutoSize;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmPedVend: TFrmPedVend;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFrmPedVend.MontaCamposLivres;
+var
+  Loop, iLeft, iTop: Integer;
+  F: TField;
+  Lb, OldLb: TMaskLabeledEdit;
+  Campo:TCampoLivre;
+begin
+  pnCamposLivres.Visible := False;
+  if (Pesquisa.CamposLivres.Count>0) then
+  begin
+     pnCamposLivres.Visible := True;
+     {Retira todos os campos livres da tela}
+     while True do
+     begin
+       Loop := (pnCamposLivres.ControlCount - 1);
+       if (Loop < 0) then Break;
+       pnCamposLivres.Controls[Loop].Destroy;
+     end;
+
+     OldLb := nil;
+     iLeft := 6;
+     iTop := 18;
+
+     for Loop := 0 to (Pesquisa.CamposLivres.Count - 1) do
+     begin
+       {Procura o campo pelo nome}
+       Campo := TCampoLivre(Pesquisa.CamposLivres.Items[Loop]);
+       F := cdsPesquisa.Fields.FindField(Campo.NomeCampo);
+       if (F = nil) then
+         Continue;
+
+       {Cria o campo e redimensiona}
+       Lb := TMaskLabeledEdit.Create(Self);
+       Lb.Parent := pnCamposLivres;
+       Lb.Left := iLeft;
+       Lb.Top := iTop;
+       if (F.DataType=ftInteger) then
+          lb.Width := 50
+       else
+          Lb.Width := (F.DisplayWidth * 7);
+       Lb.Name := 'ed' + F.FieldName;
+       Lb.Habilitado := False;
+       Lb.LabelSpacing := 0;
+       Lb.TabStop := False;
+       Lb.CaptionLabel := TCampoLivre(Pesquisa.CamposLivres.Items[Loop]).Titulo;
+
+       {Se for o ultimo campo da tela e o próximo campo da tela não couber, ajusta
+        o campo atual pra fechar o tamanho da tela}
+       Inc(iLeft, Lb.Width);
+       if (iLeft > pnCamposLivres.Width) then
+       begin
+         iLeft := 6;
+         Inc(iTop, 40);
+
+         Lb.Left := iLeft;
+         Lb.Top := iTop;
+
+         if (OldLb <> nil) then
+           OldLb.Width := (pnCamposLivres.Width - 6 - OldLb.Left);
+         Inc(iLeft, Lb.Width);
+         pnCamposLivres.Height := pnCamposLivres.Height+41;
+       end;
+
+       Inc(iLeft, 3);
+       OldLb := Lb;
+     end;
+  end;
+
+end.
