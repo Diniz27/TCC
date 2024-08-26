@@ -4,20 +4,20 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ExtCtrls, Vcl.StdCtrls,
+  System.ImageList, Vcl.ImgList, Vcl.Imaging.pngimage, Vcl.Buttons;
 
 type
   TFrmPrincipal = class(TForm)
-    MainMenu1: TMainMenu;
-    Vendas1: TMenuItem;
-    Impresso1: TMenuItem;
-    PedVend: TMenuItem;
-    Cadastro1: TMenuItem;
-    CadCliente: TMenuItem;
-    Rel: TMenuItem;
-    CadProduto: TMenuItem;
+    PnlPedido: TPanel;
+    Label1: TLabel;
+    Image1: TImage;
+    Panel3: TPanel;
+    BtnPedido: TSpeedButton;
     procedure PedVendClick(Sender: TObject);
     procedure CadClienteClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure BtnPedidoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -31,7 +31,18 @@ implementation
 
 {$R *.dfm}
 
-uses UFrmPedVend, UFrmCadCliente;
+uses UFrmPedVend, UFrmCadCliente, UFrmLogin;
+
+procedure TFrmPrincipal.BtnPedidoClick(Sender: TObject);
+begin
+  try
+    PnlPedido.Hide;
+    FrmPedVend := TFrmPedVend.Create(Self);
+    FrmPedVend.Show;
+  Except
+    FrmPedVend.Free;
+  end;
+end;
 
 procedure TFrmPrincipal.CadClienteClick(Sender: TObject);
 begin
@@ -41,6 +52,16 @@ begin
   except
     FrmCadCliente.Free;
   end;
+end;
+
+procedure TFrmPrincipal.FormShow(Sender: TObject);
+begin
+  Try
+    FrmLogin := TFrmLogin.Create(Self);
+    FrmLogin.Show;
+  Except
+    FrmLogin.Free;
+  End;
 end;
 
 procedure TFrmPrincipal.PedVendClick(Sender: TObject);

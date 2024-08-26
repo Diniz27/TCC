@@ -23,7 +23,6 @@ object FrmPedVend: TFrmPedVend
     Height = 665
     Align = alLeft
     TabOrder = 0
-    ExplicitHeight = 617
     object Label1: TLabel
       Left = 10
       Top = 10
@@ -108,9 +107,6 @@ object FrmPedVend: TFrmPedVend
     Height = 665
     Align = alClient
     TabOrder = 1
-    ExplicitLeft = 330
-    ExplicitWidth = 590
-    ExplicitHeight = 616
     DesignSize = (
       753
       665)
