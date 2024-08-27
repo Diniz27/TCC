@@ -2,31 +2,33 @@ object FrmLogin: TFrmLogin
   Left = 0
   Top = 0
   BorderIcons = [biSystemMenu]
-  BorderStyle = bsSingle
+  BorderStyle = bsNone
   Caption = 'Login Sistema'
-  ClientHeight = 441
-  ClientWidth = 661
+  ClientHeight = 392
+  ClientWidth = 639
   Color = clBtnFace
+  TransparentColorValue = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clHighlight
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  FormStyle = fsStayOnTop
+  KeyPreview = True
   Position = poDesktopCenter
-  Visible = True
   OnClose = FormClose
   OnCreate = FormCreate
+  OnKeyPress = FormKeyPress
+  OnShow = FormShow
   TextHeight = 15
   object PnlLogin: TPanel
     Left = 0
     Top = 0
-    Width = 661
-    Height = 441
+    Width = 639
+    Height = 392
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 640
-    ExplicitHeight = 480
+    ExplicitWidth = 665
+    ExplicitHeight = 353
     object Image1: TImage
       Left = 104
       Top = 96
@@ -186,31 +188,15 @@ object FrmLogin: TFrmLogin
       TabOrder = 0
       OnClick = LinkLabel1Click
     end
-    object DBEdit1: TDBEdit
+    object PnlConfirma: TPanel
       Left = 350
-      Top = 96
-      Width = 250
-      Height = 23
-      BorderStyle = bsNone
-      TabOrder = 1
-    end
-    object DBEdit2: TDBEdit
-      Left = 350
-      Top = 176
-      Width = 250
-      Height = 23
-      BorderStyle = bsNone
-      TabOrder = 2
-    end
-    object Panel1: TPanel
-      Left = 350
-      Top = 233
+      Top = 240
       Width = 125
       Height = 41
       Color = clHighlight
       ParentBackground = False
-      TabOrder = 3
-      object SpeedButton1: TSpeedButton
+      TabOrder = 1
+      object BtnConfirma: TSpeedButton
         Left = 1
         Top = 1
         Width = 123
@@ -226,19 +212,20 @@ object FrmLogin: TFrmLogin
         Font.Style = []
         ParentFont = False
         Transparent = False
-        OnClick = SpeedButton1Click
-        ExplicitLeft = 0
+        OnClick = BtnConfirmaClick
+        ExplicitLeft = -4
+        ExplicitTop = 30
       end
     end
-    object Panel2: TPanel
-      Left = 475
-      Top = 233
+    object PnlCancela: TPanel
+      Left = 480
+      Top = 240
       Width = 125
       Height = 41
       Color = clBtnShadow
       ParentBackground = False
-      TabOrder = 4
-      object SpeedButton2: TSpeedButton
+      TabOrder = 2
+      object BtnCancela: TSpeedButton
         Left = 1
         Top = 1
         Width = 123
@@ -254,11 +241,86 @@ object FrmLogin: TFrmLogin
         Font.Style = []
         ParentFont = False
         Transparent = False
-        OnClick = SpeedButton2Click
+        OnClick = BtnCancelaClick
         ExplicitLeft = 57
         ExplicitTop = 9
         ExplicitWidth = 119
       end
+    end
+    object EdtUsuario: TEdit
+      Left = 350
+      Top = 96
+      Width = 249
+      Height = 25
+      BevelInner = bvNone
+      BevelOuter = bvNone
+      BorderStyle = bsNone
+      CharCase = ecLowerCase
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clHighlight
+      Font.Height = -14
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 3
+      TextHint = 'Login'
+      OnChange = EdtUsuarioChange
+    end
+    object EdtSenha: TEdit
+      Left = 350
+      Top = 176
+      Width = 249
+      Height = 25
+      BevelInner = bvNone
+      BevelOuter = bvNone
+      BorderStyle = bsNone
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clHighlight
+      Font.Height = -14
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      PasswordChar = '#'
+      TabOrder = 4
+      TextHint = 'Senha'
+      OnChange = EdtSenhaChange
+    end
+    object PnlMensagem: TPanel
+      Left = 350
+      Top = 206
+      Width = 249
+      Height = 28
+      BevelOuter = bvNone
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clMaroon
+      Font.Height = -12
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 5
+    end
+  end
+  object QryLogin: TADOQuery
+    ConnectionString = 
+      'Provider=MSDASQL.1;Persist Security Info=False;User ID=root;Data' +
+      ' Source=MySql32;Initial Catalog=sistema'
+    CursorType = ctStatic
+    MaxRecords = 1000
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT * FROM USUARIOS')
+    Left = 256
+    Top = 296
+    object QryLoginid_usuarios: TIntegerField
+      FieldName = 'id_usuarios'
+    end
+    object QryLoginnm_usuarios: TWideStringField
+      FieldName = 'nm_usuarios'
+      Size = 45
+    end
+    object QryLoginsenha: TWideStringField
+      FieldName = 'senha'
+      Size = 10
     end
   end
 end

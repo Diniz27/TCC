@@ -4,34 +4,11 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Grids,
-  Vcl.DBGrids, Vcl.ExtCtrls, System.ImageList, Vcl.ImgList, Vcl.Buttons,
-  Vcl.Mask, Vcl.DBCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UFrmPadrao, System.ImageList,
+  Vcl.ImgList, Vcl.Buttons, Vcl.ExtCtrls, Vcl.StdCtrls;
 
 type
-  TFrmCadCliente = class(TForm)
-    PnlBotao: TPanel;
-    DBGrid1: TDBGrid;
-    GroupBox1: TGroupBox;
-    SpeedButton1: TSpeedButton;
-    ImageList1: TImageList;
-    SpeedButton2: TSpeedButton;
-    SpeedButton3: TSpeedButton;
-    SpeedButton4: TSpeedButton;
-    SpeedButton5: TSpeedButton;
-    SpeedButton6: TSpeedButton;
-    SpeedButton7: TSpeedButton;
-    SpeedButton8: TSpeedButton;
-    SpeedButton9: TSpeedButton;
-    PnlPesq: TPanel;
-    DBEdit1: TDBEdit;
-    LbCodClie: TLabel;
-    LblNomeClie: TLabel;
-    DBEdit2: TDBEdit;
-    Label1: TLabel;
-    DBEdit3: TDBEdit;
-    SpeedButton10: TSpeedButton;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  TFrmCadCliente = class(TFrmPadrao)
   private
     { Private declarations }
   public
@@ -45,9 +22,6 @@ implementation
 
 {$R *.dfm}
 
-procedure TFrmCadCliente.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  Action := CaFree;
-end;
+uses UFrmCliente;
 
 end.
