@@ -1,5 +1,5 @@
 inherited FrmCadProduto: TFrmCadProduto
-  Caption = 'FrmCadProduto'
+  Caption = 'Central Cadastro de Produtos'
   ClientHeight = 542
   ClientWidth = 1069
   OnCreate = FormCreate
@@ -251,11 +251,17 @@ inherited FrmCadProduto: TFrmCadProduto
         Left = 20
         Top = 32
         Width = 121
-        Height = 23
+        Height = 25
         Color = cl3DLight
         DataField = 'id_produto'
         DataSource = Ds
         Enabled = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         ReadOnly = True
         TabOrder = 2
       end
@@ -263,63 +269,105 @@ inherited FrmCadProduto: TFrmCadProduto
         Left = 212
         Top = 32
         Width = 145
-        Height = 23
+        Height = 25
         DataField = 'id_unimedida'
         DataSource = Ds
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 0
       end
       object DBEdit3: TDBEdit
         Left = 20
         Top = 104
         Width = 537
-        Height = 23
+        Height = 25
         DataField = 'nm_produto'
         DataSource = Ds
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 3
       end
       object DBEdit4: TDBEdit
         Left = 20
         Top = 192
         Width = 121
-        Height = 23
+        Height = 25
         DataField = 'vl_produto'
         DataSource = Ds
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 4
       end
       object DBEdit5: TDBEdit
         Left = 212
         Top = 192
         Width = 121
-        Height = 23
+        Height = 25
         DataField = 'qn_estoque'
         DataSource = Ds
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 5
       end
       object DBEdit6: TDBEdit
         Left = 412
         Top = 192
         Width = 121
-        Height = 23
+        Height = 25
         DataField = 'qn_peso'
         DataSource = Ds
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 6
       end
       object DBEdit7: TDBEdit
         Left = 20
         Top = 272
         Width = 537
-        Height = 23
+        Height = 25
         DataField = 'nm_obs'
         DataSource = Ds
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 7
       end
       object DBLookupComboBox3: TDBLookupComboBox
         Left = 412
         Top = 32
         Width = 145
-        Height = 23
+        Height = 25
         DataField = 'id_fornecedor'
         DataSource = Ds
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 1
       end
     end
@@ -382,7 +430,7 @@ inherited FrmCadProduto: TFrmCadProduto
   end
   object Ds: TDataSource
     DataSet = Qry
-    Left = 720
-    Top = 176
+    Left = 432
+    Top = 16
   end
 end

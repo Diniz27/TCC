@@ -1,5 +1,5 @@
 inherited FrmProdutos: TFrmProdutos
-  Caption = 'FrmProdutos'
+  Caption = 'Central de Produtos'
   ClientWidth = 1042
   OnShow = FormShow
   ExplicitWidth = 1054
@@ -78,6 +78,7 @@ inherited FrmProdutos: TFrmProdutos
       TitleFont.Height = -12
       TitleFont.Name = 'Segoe UI'
       TitleFont.Style = []
+      OnDblClick = DBGrid1DblClick
       Columns = <
         item
           Expanded = False
@@ -88,6 +89,7 @@ inherited FrmProdutos: TFrmProdutos
           Title.Font.Height = -14
           Title.Font.Name = 'Segoe UI'
           Title.Font.Style = [fsBold]
+          Width = 95
           Visible = True
         end
         item
@@ -99,13 +101,25 @@ inherited FrmProdutos: TFrmProdutos
           Title.Font.Height = -14
           Title.Font.Name = 'Segoe UI'
           Title.Font.Style = [fsBold]
-          Width = 64
+          Width = 300
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'vl_produto'
           Title.Caption = 'Valor'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -14
+          Title.Font.Name = 'Segoe UI'
+          Title.Font.Style = [fsBold]
+          Width = 95
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'qn_estoque'
+          Title.Caption = 'Qntd. Estoque'
           Title.Font.Charset = DEFAULT_CHARSET
           Title.Font.Color = clWindowText
           Title.Font.Height = -14
@@ -122,7 +136,7 @@ inherited FrmProdutos: TFrmProdutos
           Title.Font.Height = -14
           Title.Font.Name = 'Segoe UI'
           Title.Font.Style = [fsBold]
-          Width = 64
+          Width = 95
           Visible = True
         end
         item
@@ -134,7 +148,19 @@ inherited FrmProdutos: TFrmProdutos
           Title.Font.Height = -14
           Title.Font.Name = 'Segoe UI'
           Title.Font.Style = [fsBold]
-          Width = 64
+          Width = 150
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'nm_obs'
+          Title.Caption = 'OBS'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -14
+          Title.Font.Name = 'Segoe UI'
+          Title.Font.Style = [fsBold]
+          Width = 300
           Visible = True
         end>
     end
@@ -154,8 +180,8 @@ inherited FrmProdutos: TFrmProdutos
       1042
       57)
     object BtnPesquisa: TSpeedButton
-      Left = 655
-      Top = 16
+      Left = 660
+      Top = 15
       Width = 23
       Height = 27
       Anchors = [akTop, akRight]
@@ -308,8 +334,9 @@ inherited FrmProdutos: TFrmProdutos
       'order by id_produto')
     Left = 456
     Top = 8
-    object Qryid_produto: TIntegerField
+    object Qryid_produto: TAutoIncField
       FieldName = 'id_produto'
+      ReadOnly = True
     end
     object Qrynm_produto: TWideStringField
       FieldName = 'nm_produto'
@@ -323,6 +350,16 @@ inherited FrmProdutos: TFrmProdutos
     end
     object Qryid_unimedida: TIntegerField
       FieldName = 'id_unimedida'
+    end
+    object Qryqn_estoque: TIntegerField
+      FieldName = 'qn_estoque'
+    end
+    object Qryqn_peso: TFloatField
+      FieldName = 'qn_peso'
+    end
+    object Qrynm_obs: TWideStringField
+      FieldName = 'nm_obs'
+      Size = 45
     end
   end
   inherited Connection: TADOConnection

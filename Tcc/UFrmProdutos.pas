@@ -21,19 +21,23 @@ type
     BtnEditar: TSpeedButton;
     Ds: TDataSource;
     Qry: TADOQuery;
-    Qryid_produto: TIntegerField;
+    PnlExclui: TPanel;
+    BtnExclui: TSpeedButton;
+    Qryid_produto: TAutoIncField;
     Qrynm_produto: TWideStringField;
     Qryvl_produto: TFloatField;
     Qryid_fornecedor: TIntegerField;
     Qryid_unimedida: TIntegerField;
-    PnlExclui: TPanel;
-    BtnExclui: TSpeedButton;
+    Qryqn_estoque: TIntegerField;
+    Qryqn_peso: TFloatField;
+    Qrynm_obs: TWideStringField;
     procedure FormShow(Sender: TObject);
     procedure BtnPesquisaClick(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
     procedure BtnCloseClick(Sender: TObject);
     procedure BtnExcluiClick(Sender: TObject);
     procedure BtnEditarClick(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -97,9 +101,12 @@ procedure TFrmProdutos.BtnPesquisaClick(Sender: TObject);
 begin
   inherited;
 
-  if EdtPesq.Text = '' then
+  if Trim(EdtPesq.Text) = '' then
   begin
-    Qry.Refresh;
+    Qry.Close;
+    Qry.SQL.Clear;
+    Qry.SQL.Add('SELECT * FROM sistema.PRODUTOS ORDER BY ID_PRODUTO');
+    Qry.Open;
     Exit;
   end;
 
@@ -119,6 +126,12 @@ begin
     Qry.Parameters.ParamByName('nm_prod').Value := '%' + EdtPesq.text + '%';
     Qry.Open;
   end;
+end;
+
+procedure TFrmProdutos.DBGrid1DblClick(Sender: TObject);
+begin
+  inherited;
+  BtnEditar.Click;
 end;
 
 procedure TFrmProdutos.FormShow(Sender: TObject);

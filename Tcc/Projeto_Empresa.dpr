@@ -10,7 +10,8 @@ uses
   UFrmUsuarios in 'UFrmUsuarios.pas' {FrmUsuarios},
   UFrmLogin in 'UFrmLogin.pas' {FrmLogin},
   UFrmProdutos in 'UFrmProdutos.pas' {FrmProdutos},
-  UFrmCadProduto in 'UFrmCadProduto.pas' {FrmCadProduto};
+  UFrmCadProduto in 'UFrmCadProduto.pas' {FrmCadProduto},
+  UFrmCadPessoas in 'UFrmCadPessoas.pas' {FrmCadPessoas};
 
 {$R *.res}
 
@@ -19,5 +20,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.Title := 'Gestão Empresarial';
   Application.CreateForm(TFrmPrincipal, FrmPrincipal);
+//  Application.CreateForm(TFrmCadPessoas, FrmCadPessoas);
   Application.Run;
 end.
