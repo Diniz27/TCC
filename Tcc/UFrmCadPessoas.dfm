@@ -1,12 +1,13 @@
 inherited FrmCadPessoas: TFrmCadPessoas
   Caption = 'FrmCadPessoas'
-  ClientHeight = 609
+  ClientHeight = 656
   ClientWidth = 1087
   ExplicitWidth = 1099
-  ExplicitHeight = 647
+  ExplicitHeight = 694
   TextHeight = 15
   inherited PnlTopo: TPanel
     Width = 1087
+    ExplicitWidth = 1083
     inherited Image4: TImage
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000000320000
@@ -66,12 +67,15 @@ inherited FrmCadPessoas: TFrmCadPessoas
       ExplicitWidth = 110
     end
     inherited BtnClose: TSpeedButton
-      Left = 1025
+      Left = 1017
+      ExplicitLeft = 1025
     end
   end
   inherited PnlCentral: TPanel
     Width = 1087
-    Height = 544
+    Height = 591
+    ExplicitWidth = 1083
+    ExplicitHeight = 590
     object Label1: TLabel
       Left = 18
       Top = 6
@@ -101,7 +105,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
     object Panel1: TPanel
       Left = 0
       Top = 32
-      Width = 1087
+      Width = 1079
       Height = 225
       Anchors = [akLeft, akTop, akRight]
       Font.Charset = DEFAULT_CHARSET
@@ -111,6 +115,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      ExplicitWidth = 1075
       object Label3: TLabel
         Left = 17
         Top = 11
@@ -125,7 +130,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         ParentFont = False
       end
       object Label5: TLabel
-        Left = 200
+        Left = 262
         Top = 9
         Width = 85
         Height = 17
@@ -137,12 +142,12 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object Label6: TLabel
+      object LblNome: TLabel
         Left = 18
         Top = 81
-        Width = 117
+        Width = 127
         Height = 17
-        Caption = 'Nome Raz'#227'o Social'
+        Caption = 'Nome / Raz'#227'o Social'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowFrame
         Font.Height = -13
@@ -150,12 +155,12 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object Label7: TLabel
-        Left = 392
+      object LblNomeRedu: TLabel
+        Left = 512
         Top = 81
-        Width = 153
+        Width = 163
         Height = 17
-        Caption = 'Nome Reduzido Fantasia'
+        Caption = 'Nome Reduzido / Fantasia'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowFrame
         Font.Height = -13
@@ -163,12 +168,12 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object Label8: TLabel
+      object LblCPFCNPJ: TLabel
         Left = 18
         Top = 161
-        Width = 58
+        Width = 68
         Height = 17
-        Caption = 'CPF CNPJ'
+        Caption = 'CPF / CNPJ'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowFrame
         Font.Height = -13
@@ -176,12 +181,12 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object Label9: TLabel
-        Left = 200
+      object LblRGIE: TLabel
+        Left = 262
         Top = 161
-        Width = 32
+        Width = 42
         Height = 17
-        Caption = 'RG IE'
+        Caption = 'RG / IE'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowFrame
         Font.Height = -13
@@ -190,8 +195,8 @@ inherited FrmCadPessoas: TFrmCadPessoas
         ParentFont = False
       end
       object Label10: TLabel
-        Left = 391
-        Top = 163
+        Left = 512
+        Top = 161
         Width = 109
         Height = 17
         Caption = 'Consumidor Final'
@@ -202,10 +207,10 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object ComboBox1: TComboBox
+      object CbTipoPessoa: TComboBox
         Left = 18
         Top = 32
-        Width = 145
+        Width = 225
         Height = 25
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -214,14 +219,15 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Font.Style = []
         ParentFont = False
         TabOrder = 0
+        OnChange = CbTipoPessoaChange
         Items.Strings = (
           'Cliente'
           'Fornecedor')
       end
       object EdtDataCad: TDBEdit
-        Left = 200
+        Left = 262
         Top = 32
-        Width = 145
+        Width = 225
         Height = 25
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -232,9 +238,9 @@ inherited FrmCadPessoas: TFrmCadPessoas
         TabOrder = 1
       end
       object RadioGroup1: TRadioGroup
-        Left = 392
-        Top = 11
-        Width = 265
+        Left = 512
+        Top = 9
+        Width = 337
         Height = 48
         Caption = 'Fis'#237'ca ou J'#250'ridica?'
         Color = clBtnFace
@@ -263,7 +269,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
       object EdtNome: TDBEdit
         Left = 18
         Top = 104
-        Width = 327
+        Width = 469
         Height = 25
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -274,9 +280,9 @@ inherited FrmCadPessoas: TFrmCadPessoas
         TabOrder = 3
       end
       object EdtNomeRed: TDBEdit
-        Left = 392
+        Left = 512
         Top = 104
-        Width = 265
+        Width = 337
         Height = 25
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -289,7 +295,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
       object EdtCPFCNPJ: TDBEdit
         Left = 18
         Top = 184
-        Width = 145
+        Width = 225
         Height = 25
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -300,9 +306,9 @@ inherited FrmCadPessoas: TFrmCadPessoas
         TabOrder = 5
       end
       object EdtRGIE: TDBEdit
-        Left = 200
+        Left = 262
         Top = 184
-        Width = 145
+        Width = 225
         Height = 25
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -313,9 +319,9 @@ inherited FrmCadPessoas: TFrmCadPessoas
         TabOrder = 6
       end
       object ComboBox2: TComboBox
-        Left = 392
+        Left = 512
         Top = 184
-        Width = 265
+        Width = 337
         Height = 25
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -333,9 +339,12 @@ inherited FrmCadPessoas: TFrmCadPessoas
       Left = 0
       Top = 289
       Width = 1087
-      Height = 255
+      Height = 302
       Align = alBottom
+      Anchors = [akLeft, akTop, akRight, akBottom]
       TabOrder = 1
+      ExplicitWidth = 1083
+      ExplicitHeight = 301
       object Label12: TLabel
         Left = 18
         Top = 17
@@ -349,7 +358,146 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object DBEdit1: TDBEdit
+      object Label6: TLabel
+        Left = 18
+        Top = 81
+        Width = 56
+        Height = 17
+        Caption = 'Endere'#231'o'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowFrame
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label7: TLabel
+        Left = 18
+        Top = 153
+        Width = 37
+        Height = 17
+        Caption = 'Bairro'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowFrame
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label8: TLabel
+        Left = 367
+        Top = 153
+        Width = 94
+        Height = 17
+        Caption = 'C'#243'd. Municipio'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowFrame
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label9: TLabel
+        Left = 512
+        Top = 81
+        Width = 50
+        Height = 17
+        Caption = 'N'#250'mero'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowFrame
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label13: TLabel
+        Left = 608
+        Top = 81
+        Width = 87
+        Height = 17
+        Caption = 'Complemento'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowFrame
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label14: TLabel
+        Left = 512
+        Top = 153
+        Width = 42
+        Height = 17
+        Caption = 'Cidade'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowFrame
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label15: TLabel
+        Left = 718
+        Top = 153
+        Width = 41
+        Height = 17
+        Caption = 'Estado'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowFrame
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label16: TLabel
+        Left = 17
+        Top = 233
+        Width = 64
+        Height = 17
+        Caption = 'Telefone 1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowFrame
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label17: TLabel
+        Left = 262
+        Top = 233
+        Width = 64
+        Height = 17
+        Caption = 'Telefone 2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowFrame
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label18: TLabel
+        Left = 512
+        Top = 233
+        Width = 39
+        Height = 17
+        Caption = 'E-Mail'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowFrame
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object BtnPesq: TSpeedButton
+        Left = 140
+        Top = 40
+        Width = 23
+        Height = 22
+        ImageIndex = 1
+        Images = ImageList1
+        OnClick = BtnPesqClick
+      end
+      object EdtCEP: TDBEdit
         Left = 17
         Top = 40
         Width = 121
@@ -362,11 +510,164 @@ inherited FrmCadPessoas: TFrmCadPessoas
         ParentFont = False
         TabOrder = 0
       end
+      object EdtEndereco: TDBEdit
+        Left = 17
+        Top = 104
+        Width = 470
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+      end
+      object EdtBairro: TDBEdit
+        Left = 17
+        Top = 176
+        Width = 330
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+      end
+      object EdtCodIBGE: TDBEdit
+        Left = 366
+        Top = 176
+        Width = 121
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 3
+      end
+      object EdtNumero: TDBEdit
+        Left = 512
+        Top = 104
+        Width = 81
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 4
+      end
+      object EdtComplemento: TDBEdit
+        Left = 608
+        Top = 104
+        Width = 241
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 5
+      end
+      object EdtCidade: TDBEdit
+        Left = 512
+        Top = 176
+        Width = 185
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 6
+      end
+      object EdtEstado: TDBEdit
+        Left = 718
+        Top = 176
+        Width = 131
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 7
+      end
+      object EdtNumero1: TDBEdit
+        Left = 17
+        Top = 256
+        Width = 226
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 8
+      end
+      object EdtTelefone2: TDBEdit
+        Left = 262
+        Top = 256
+        Width = 225
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 9
+      end
+      object EdtEmail: TDBEdit
+        Left = 512
+        Top = 256
+        Width = 337
+        Height = 25
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 10
+      end
+      object Edit1: TEdit
+        Left = 304
+        Top = 40
+        Width = 121
+        Height = 23
+        TabOrder = 11
+        Text = 'Edit1'
+      end
     end
   end
   inherited Connection: TADOConnection
     ConnectionString = 
       'Provider=MSDASQL.1;Persist Security Info=False;User ID=root;Data' +
       ' Source=MySql32;Initial Catalog=sistema'
+  end
+  object XMLDocument1: TXMLDocument
+    Left = 512
+    Top = 16
+    DOMVendorDesc = 'MSXML'
+  end
+  object SSLIO: TIdSSLIOHandlerSocketOpenSSL
+    MaxLineAction = maException
+    Port = 0
+    DefaultPort = 0
+    SSLOptions.Mode = sslmUnassigned
+    SSLOptions.VerifyMode = []
+    SSLOptions.VerifyDepth = 0
+    Left = 424
+    Top = 16
   end
 end

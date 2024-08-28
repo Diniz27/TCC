@@ -5,6 +5,7 @@ inherited FrmCliente: TFrmCliente
   TextHeight = 15
   inherited PnlTopo: TPanel
     Width = 1042
+    ExplicitWidth = 1038
     inherited Image4: TImage
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000000320000
@@ -64,20 +65,22 @@ inherited FrmCliente: TFrmCliente
       ExplicitWidth = 55
     end
     inherited BtnClose: TSpeedButton
-      Left = 980
+      Left = 972
+      ExplicitLeft = 980
     end
   end
   inherited PnlCentral: TPanel
     Top = 122
     Width = 1042
-    Height = 320
+    Height = 319
     ExplicitTop = 122
+    ExplicitWidth = 1038
     ExplicitHeight = 319
     object DBGrid1: TDBGrid
       Left = 0
       Top = 0
       Width = 1042
-      Height = 320
+      Height = 319
       Align = alClient
       BorderStyle = bsNone
       TabOrder = 0
@@ -98,12 +101,12 @@ inherited FrmCliente: TFrmCliente
     Color = clWhite
     ParentBackground = False
     TabOrder = 2
-    ExplicitWidth = 838
+    ExplicitWidth = 1038
     DesignSize = (
       1042
       57)
     object BtnPesq: TSpeedButton
-      Left = 660
+      Left = 652
       Top = 15
       Width = 23
       Height = 27
@@ -111,6 +114,7 @@ inherited FrmCliente: TFrmCliente
       ImageIndex = 1
       Images = ImageList1
       Flat = True
+      ExplicitLeft = 660
     end
     object CbTipo: TComboBox
       Left = 16
@@ -134,7 +138,7 @@ inherited FrmCliente: TFrmCliente
     object EdtPesq: TEdit
       Left = 192
       Top = 16
-      Width = 465
+      Width = 457
       Height = 27
       Anchors = [akLeft, akTop, akRight]
       Font.Charset = DEFAULT_CHARSET
@@ -144,9 +148,10 @@ inherited FrmCliente: TFrmCliente
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      ExplicitWidth = 453
     end
     object PnlEditar: TPanel
-      Left = 843
+      Left = 835
       Top = 6
       Width = 97
       Height = 35
@@ -154,6 +159,7 @@ inherited FrmCliente: TFrmCliente
       Color = 5755391
       ParentBackground = False
       TabOrder = 2
+      ExplicitLeft = 831
       object BtnEditar: TSpeedButton
         Left = 1
         Top = 1
@@ -176,7 +182,7 @@ inherited FrmCliente: TFrmCliente
       end
     end
     object PnlExclui: TPanel
-      Left = 945
+      Left = 937
       Top = 6
       Width = 97
       Height = 35
@@ -184,6 +190,7 @@ inherited FrmCliente: TFrmCliente
       Color = clMaroon
       ParentBackground = False
       TabOrder = 3
+      ExplicitLeft = 933
       object BtnExclui: TSpeedButton
         Left = 1
         Top = 1
@@ -206,7 +213,7 @@ inherited FrmCliente: TFrmCliente
       end
     end
     object PnlNovo: TPanel
-      Left = 740
+      Left = 732
       Top = 6
       Width = 97
       Height = 35
@@ -214,6 +221,7 @@ inherited FrmCliente: TFrmCliente
       Color = clHighlight
       ParentBackground = False
       TabOrder = 4
+      ExplicitLeft = 728
       object BtnNovo: TSpeedButton
         Left = 1
         Top = 1
