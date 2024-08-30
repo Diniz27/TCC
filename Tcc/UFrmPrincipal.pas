@@ -63,16 +63,16 @@ implementation
 {$R *.dfm}
 
 uses UFrmPedVend, UFrmCadCliente, UFrmLogin, UFrmCliente, UFrmUsuarios,
-  UDmPrincipal, UFrmProdutos;
+  UDmPrincipal, UFrmProdutos, UFrmPessoas;
 
 procedure TFrmPrincipal.BtnClienteClick(Sender: TObject);
 begin
   try
     EsconderPainel;
-    FrmCliente := TFrmCliente.Create(Self);
-    FrmCliente.Show;
+    FrmPessoas := TFrmPessoas.Create(Self);
+    FrmPessoas.Show;
   except
-    FrmCliente.Free;
+    FrmPessoas.Free;
   end;
 end;
 

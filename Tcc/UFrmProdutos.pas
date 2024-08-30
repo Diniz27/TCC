@@ -38,6 +38,8 @@ type
     procedure BtnExcluiClick(Sender: TObject);
     procedure BtnEditarClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
   private
     { Private declarations }
   public
@@ -63,11 +65,16 @@ procedure TFrmProdutos.BtnEditarClick(Sender: TObject);
 begin
   inherited;
   Try
+    Screen.Cursor := crHourGlass;
+
     FrmCadProduto := TFrmCadProduto.Create(Self);
     FrmCadProduto.Qry.Edit;
     FrmCadProduto.Show;
+
+    Screen.Cursor := crDefault;
   except
     FrmCadProduto.Free;
+    Screen.Cursor := crDefault;
   End;
 end;
 
@@ -89,11 +96,16 @@ procedure TFrmProdutos.BtnNovoClick(Sender: TObject);
 begin
   inherited;
   Try
+    Screen.Cursor := crHourGlass;
+
     FrmCadProduto := TFrmCadProduto.Create(Self);
     FrmCadProduto.Qry.Append;
     FrmCadProduto.Show;
+
+    Screen.Cursor := crDefault;
   except
     FrmCadProduto.Free;
+    Screen.Cursor := crDefault;
   End;
 end;
 
@@ -132,6 +144,24 @@ procedure TFrmProdutos.DBGrid1DblClick(Sender: TObject);
 begin
   inherited;
   BtnEditar.Click;
+end;
+
+procedure TFrmProdutos.DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+  DataCol: Integer; Column: TColumn; State: TGridDrawState);
+begin
+  inherited;
+  with Sender as TDBGrid do
+  begin
+    if gdSelected in State then
+      Canvas.Brush.Color := clSkyBlue  // Cor de fundo para a linha selecionada
+    else if DataSource.DataSet.RecNo mod 2 = 0 then
+      Canvas.Brush.Color := clWhite  // Cor de fundo para linhas pares
+    else
+      Canvas.Brush.Color := $00F0F0F0;  // Cor de fundo para linhas ímpares (cinza claro)
+
+    Canvas.FillRect(Rect);
+    DefaultDrawColumnCell(Rect, DataCol, Column, State);
+  end;
 end;
 
 procedure TFrmProdutos.FormShow(Sender: TObject);

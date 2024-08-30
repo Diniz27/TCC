@@ -70,7 +70,7 @@ object FrmPadrao: TFrmPadrao
       ParentFont = False
     end
     object BtnClose: TSpeedButton
-      Left = 784
+      Left = 780
       Top = 13
       Width = 35
       Height = 35
@@ -80,6 +80,7 @@ object FrmPadrao: TFrmPadrao
       Images = ImageList1
       Flat = True
       OnClick = BtnCloseClick
+      ExplicitLeft = 784
     end
   end
   object PnlCentral: TPanel

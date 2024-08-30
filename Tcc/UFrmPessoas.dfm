@@ -1,5 +1,6 @@
-inherited FrmCliente: TFrmCliente
-  Caption = 'FrmCliente'
+inherited FrmPessoas: TFrmPessoas
+  Caption = 'FrmPessoas'
+  ClientHeight = 442
   ClientWidth = 1042
   OnShow = FormShow
   ExplicitWidth = 1054
@@ -7,6 +8,9 @@ inherited FrmCliente: TFrmCliente
   inherited PnlTopo: TPanel
     Width = 1042
     ExplicitWidth = 1038
+    DesignSize = (
+      1038
+      61)
     inherited Image4: TImage
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000000320000
@@ -66,14 +70,14 @@ inherited FrmCliente: TFrmCliente
       ExplicitWidth = 55
     end
     inherited BtnClose: TSpeedButton
-      Left = 964
+      Left = 952
       ExplicitLeft = 980
     end
   end
   inherited PnlCentral: TPanel
     Top = 122
     Width = 1042
-    Height = 319
+    Height = 320
     ExplicitTop = 122
     ExplicitWidth = 1038
     ExplicitHeight = 319
@@ -85,31 +89,87 @@ inherited FrmCliente: TFrmCliente
       Align = alClient
       BorderStyle = bsNone
       DataSource = Ds
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+      ReadOnly = True
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
       TitleFont.Height = -12
       TitleFont.Name = 'Segoe UI'
       TitleFont.Style = []
+      OnDrawColumnCell = DBGrid1DrawColumnCell
+      OnDblClick = DBGrid1DblClick
       Columns = <
         item
           Expanded = False
           FieldName = 'id_pessoa'
+          Title.Caption = 'C'#243'd. Pessoa'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -14
+          Title.Font.Name = 'Segoe UI'
+          Title.Font.Style = [fsBold]
+          Width = 90
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'nm_razaosocial'
+          Title.Caption = 'Nome'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -14
+          Title.Font.Name = 'Segoe UI'
+          Title.Font.Style = [fsBold]
+          Width = 300
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'nm_reduzido'
+          Title.Caption = 'Nome Reduzido'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -14
+          Title.Font.Name = 'Segoe UI'
+          Title.Font.Style = [fsBold]
+          Width = 300
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'nm_tipopessoa'
+          Title.Caption = 'Tipo Pessoa'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -14
+          Title.Font.Name = 'Segoe UI'
+          Title.Font.Style = [fsBold]
+          Width = 90
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'nm_cidade'
+          Title.Caption = 'Cidade'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -14
+          Title.Font.Name = 'Segoe UI'
+          Title.Font.Style = [fsBold]
+          Width = 250
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'cpf_cnpj'
+          Title.Caption = 'CPF / CNPJ'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -14
+          Title.Font.Name = 'Segoe UI'
+          Title.Font.Style = [fsBold]
+          Width = 90
           Visible = True
         end>
     end
@@ -129,7 +189,7 @@ inherited FrmCliente: TFrmCliente
       1042
       57)
     object BtnPesq: TSpeedButton
-      Left = 644
+      Left = 632
       Top = 15
       Width = 23
       Height = 27
@@ -152,6 +212,7 @@ inherited FrmCliente: TFrmCliente
       Font.Height = -14
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ItemIndex = 0
       ParentFont = False
       TabOrder = 0
       Text = 'Clientes'
@@ -162,7 +223,7 @@ inherited FrmCliente: TFrmCliente
     object EdtPesq: TEdit
       Left = 192
       Top = 16
-      Width = 449
+      Width = 437
       Height = 27
       Anchors = [akLeft, akTop, akRight]
       Font.Charset = DEFAULT_CHARSET
@@ -172,10 +233,9 @@ inherited FrmCliente: TFrmCliente
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitWidth = 445
     end
     object PnlEditar: TPanel
-      Left = 827
+      Left = 815
       Top = 6
       Width = 97
       Height = 35
@@ -183,7 +243,6 @@ inherited FrmCliente: TFrmCliente
       Color = 5755391
       ParentBackground = False
       TabOrder = 2
-      ExplicitLeft = 823
       object BtnEditar: TSpeedButton
         Left = 1
         Top = 1
@@ -207,7 +266,7 @@ inherited FrmCliente: TFrmCliente
       end
     end
     object PnlExclui: TPanel
-      Left = 929
+      Left = 917
       Top = 6
       Width = 97
       Height = 35
@@ -215,7 +274,6 @@ inherited FrmCliente: TFrmCliente
       Color = clMaroon
       ParentBackground = False
       TabOrder = 3
-      ExplicitLeft = 925
       object BtnExclui: TSpeedButton
         Left = 1
         Top = 1
@@ -239,7 +297,7 @@ inherited FrmCliente: TFrmCliente
       end
     end
     object PnlNovo: TPanel
-      Left = 724
+      Left = 712
       Top = 6
       Width = 97
       Height = 35
@@ -247,7 +305,6 @@ inherited FrmCliente: TFrmCliente
       Color = clHighlight
       ParentBackground = False
       TabOrder = 4
-      ExplicitLeft = 720
       object BtnNovo: TSpeedButton
         Left = 1
         Top = 1
@@ -275,14 +332,13 @@ inherited FrmCliente: TFrmCliente
       ' Source=MySql32;Initial Catalog=sistema'
   end
   object Qry: TADOQuery
-    Active = True
     Connection = Connection
     CursorType = ctStatic
     MaxRecords = 1000
     Parameters = <>
     SQL.Strings = (
       'select * from pessoas'
-      'order by id_pessoa desc')
+      'order by id_pessoa asc')
     Left = 512
     Top = 16
     object Qryid_pessoa: TAutoIncField

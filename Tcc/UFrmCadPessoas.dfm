@@ -1,13 +1,14 @@
 inherited FrmCadPessoas: TFrmCadPessoas
   Caption = 'FrmCadPessoas'
-  ClientHeight = 656
-  ClientWidth = 1087
-  ExplicitWidth = 1099
-  ExplicitHeight = 694
+  ClientHeight = 740
+  ClientWidth = 1012
+  OnCreate = FormCreate
+  ExplicitWidth = 1024
+  ExplicitHeight = 778
   TextHeight = 15
   inherited PnlTopo: TPanel
-    Width = 1087
-    ExplicitWidth = 1083
+    Width = 1012
+    ExplicitWidth = 1008
     inherited Image4: TImage
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000000320000
@@ -67,18 +68,18 @@ inherited FrmCadPessoas: TFrmCadPessoas
       ExplicitWidth = 110
     end
     inherited BtnClose: TSpeedButton
-      Left = 1017
+      Left = 930
       ExplicitLeft = 1025
     end
   end
   inherited PnlCentral: TPanel
-    Width = 1087
-    Height = 591
-    ExplicitWidth = 1083
-    ExplicitHeight = 590
+    Width = 1012
+    Height = 675
+    ExplicitWidth = 1008
+    ExplicitHeight = 674
     object Label1: TLabel
       Left = 18
-      Top = 6
+      Top = 21
       Width = 92
       Height = 20
       Caption = 'Dados Gerais'
@@ -91,7 +92,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
     end
     object Label11: TLabel
       Left = 18
-      Top = 263
+      Top = 286
       Width = 136
       Height = 20
       Caption = 'Endere'#231'o e Contato'
@@ -104,9 +105,9 @@ inherited FrmCadPessoas: TFrmCadPessoas
     end
     object Panel1: TPanel
       Left = 0
-      Top = 32
-      Width = 1079
-      Height = 225
+      Top = 47
+      Width = 992
+      Height = 218
       Anchors = [akLeft, akTop, akRight]
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -115,7 +116,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitWidth = 1075
+      ExplicitWidth = 988
       object Label3: TLabel
         Left = 17
         Top = 11
@@ -207,45 +208,105 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object CbTipoPessoa: TComboBox
-        Left = 18
-        Top = 32
-        Width = 225
-        Height = 25
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 0
-        OnChange = CbTipoPessoaChange
-        Items.Strings = (
-          'Cliente'
-          'Fornecedor')
-      end
       object EdtDataCad: TDBEdit
         Left = 262
         Top = 32
         Width = 225
         Height = 25
+        DataField = 'dt_cadastro'
+        DataSource = Ds
+        Enabled = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 1
+        ReadOnly = True
+        TabOrder = 7
       end
-      object RadioGroup1: TRadioGroup
+      object EdtNome: TDBEdit
+        Left = 18
+        Top = 104
+        Width = 469
+        Height = 25
+        DataField = 'nm_razaosocial'
+        DataSource = Ds
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+      end
+      object EdtNomeRed: TDBEdit
         Left = 512
-        Top = 9
+        Top = 104
         Width = 337
-        Height = 48
+        Height = 25
+        DataField = 'nm_reduzido'
+        DataSource = Ds
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 3
+      end
+      object EdtCPFCNPJ: TDBEdit
+        Left = 18
+        Top = 184
+        Width = 225
+        Height = 25
+        DataField = 'cpf_cnpj'
+        DataSource = Ds
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 4
+        OnExit = EdtCPFCNPJExit
+      end
+      object EdtRGIE: TDBEdit
+        Left = 262
+        Top = 184
+        Width = 225
+        Height = 25
+        DataField = 'rg_ie'
+        DataSource = Ds
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 5
+      end
+      object CbTipoPessoa: TDBComboBox
+        Left = 17
+        Top = 32
+        Width = 225
+        Height = 25
+        DataField = 'nm_tipopessoa'
+        DataSource = Ds
+        Items.Strings = (
+          'Cliente'
+          'Fornecedor')
+        TabOrder = 0
+      end
+      object RgTipo: TDBRadioGroup
+        Left = 512
+        Top = 11
+        Width = 337
+        Height = 46
         Caption = 'Fis'#237'ca ou J'#250'ridica?'
-        Color = clBtnFace
         Columns = 2
-        Ctl3D = True
+        DataField = 'fl_pf_pj'
+        DataSource = Ds
         DefaultHeaderFont = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowFrame
@@ -260,91 +321,36 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Items.Strings = (
           'Fis'#237'ca - CPF'
           'J'#250'ridica - CNPJ')
-        ParentBackground = False
-        ParentColor = False
-        ParentCtl3D = False
         ParentFont = False
-        TabOrder = 2
+        TabOrder = 1
+        Values.Strings = (
+          '1'
+          '2')
+        OnClick = RgTipoClick
       end
-      object EdtNome: TDBEdit
-        Left = 18
-        Top = 104
-        Width = 469
-        Height = 25
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 3
-      end
-      object EdtNomeRed: TDBEdit
-        Left = 512
-        Top = 104
-        Width = 337
-        Height = 25
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 4
-      end
-      object EdtCPFCNPJ: TDBEdit
-        Left = 18
-        Top = 184
-        Width = 225
-        Height = 25
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 5
-      end
-      object EdtRGIE: TDBEdit
-        Left = 262
-        Top = 184
-        Width = 225
-        Height = 25
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 6
-      end
-      object ComboBox2: TComboBox
+      object CbConsumidor: TDBComboBox
         Left = 512
         Top = 184
         Width = 337
         Height = 25
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 7
+        DataField = 'nm_consumidor'
+        DataSource = Ds
         Items.Strings = (
           'Consumidor Final'
           'Revenda')
+        TabOrder = 6
       end
     end
     object Panel2: TPanel
       Left = 0
-      Top = 289
-      Width = 1087
-      Height = 302
+      Top = 312
+      Width = 1012
+      Height = 363
       Align = alBottom
       Anchors = [akLeft, akTop, akRight, akBottom]
       TabOrder = 1
-      ExplicitWidth = 1083
-      ExplicitHeight = 301
+      ExplicitWidth = 1008
+      ExplicitHeight = 362
       object Label12: TLabel
         Left = 18
         Top = 17
@@ -502,6 +508,8 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Top = 40
         Width = 121
         Height = 25
+        DataField = 'cep'
+        DataSource = Ds
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -509,12 +517,15 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Font.Style = []
         ParentFont = False
         TabOrder = 0
+        OnExit = EdtCEPExit
       end
       object EdtEndereco: TDBEdit
         Left = 17
         Top = 104
         Width = 470
         Height = 25
+        DataField = 'nm_logradouro'
+        DataSource = Ds
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -528,45 +539,8 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Top = 176
         Width = 330
         Height = 25
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 2
-      end
-      object EdtCodIBGE: TDBEdit
-        Left = 366
-        Top = 176
-        Width = 121
-        Height = 25
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 3
-      end
-      object EdtNumero: TDBEdit
-        Left = 512
-        Top = 104
-        Width = 81
-        Height = 25
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 4
-      end
-      object EdtComplemento: TDBEdit
-        Left = 608
-        Top = 104
-        Width = 241
-        Height = 25
+        DataField = 'nm_bairro'
+        DataSource = Ds
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -575,24 +549,13 @@ inherited FrmCadPessoas: TFrmCadPessoas
         ParentFont = False
         TabOrder = 5
       end
-      object EdtCidade: TDBEdit
-        Left = 512
+      object EdtCodIBGE: TDBEdit
+        Left = 366
         Top = 176
-        Width = 185
+        Width = 121
         Height = 25
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 6
-      end
-      object EdtEstado: TDBEdit
-        Left = 718
-        Top = 176
-        Width = 131
-        Height = 25
+        DataField = 'id_ibge'
+        DataSource = Ds
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -601,11 +564,43 @@ inherited FrmCadPessoas: TFrmCadPessoas
         ParentFont = False
         TabOrder = 7
       end
-      object EdtNumero1: TDBEdit
-        Left = 17
-        Top = 256
-        Width = 226
+      object EdtNumero: TDBEdit
+        Left = 512
+        Top = 104
+        Width = 81
         Height = 25
+        DataField = 'nm_numero'
+        DataSource = Ds
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 3
+      end
+      object EdtComplemento: TDBEdit
+        Left = 608
+        Top = 104
+        Width = 241
+        Height = 25
+        DataField = 'nm_complemento'
+        DataSource = Ds
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 4
+      end
+      object EdtCidade: TDBEdit
+        Left = 512
+        Top = 176
+        Width = 185
+        Height = 25
+        DataField = 'nm_cidade'
+        DataSource = Ds
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -614,11 +609,13 @@ inherited FrmCadPessoas: TFrmCadPessoas
         ParentFont = False
         TabOrder = 8
       end
-      object EdtTelefone2: TDBEdit
-        Left = 262
-        Top = 256
-        Width = 225
+      object EdtEstado: TDBEdit
+        Left = 718
+        Top = 176
+        Width = 131
         Height = 25
+        DataField = 'nm_estado'
+        DataSource = Ds
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -627,11 +624,13 @@ inherited FrmCadPessoas: TFrmCadPessoas
         ParentFont = False
         TabOrder = 9
       end
-      object EdtEmail: TDBEdit
-        Left = 512
+      object EdtNumero1: TDBEdit
+        Left = 17
         Top = 256
-        Width = 337
+        Width = 226
         Height = 25
+        DataField = 'nm_telefone1'
+        DataSource = Ds
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -640,13 +639,98 @@ inherited FrmCadPessoas: TFrmCadPessoas
         ParentFont = False
         TabOrder = 10
       end
-      object Edit1: TEdit
-        Left = 304
-        Top = 40
-        Width = 121
-        Height = 23
-        TabOrder = 11
-        Text = 'Edit1'
+      object EdtTelefone2: TDBEdit
+        Left = 262
+        Top = 256
+        Width = 225
+        Height = 25
+        DataField = 'nm_telefone2'
+        DataSource = Ds
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+      end
+      object EdtEmail: TDBEdit
+        Left = 512
+        Top = 256
+        Width = 337
+        Height = 25
+        DataField = 'nm_email'
+        DataSource = Ds
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 6
+      end
+    end
+    object PnlCancela: TPanel
+      Left = 887
+      Top = 6
+      Width = 97
+      Height = 35
+      Anchors = [akTop, akRight]
+      ParentBackground = False
+      TabOrder = 2
+      ExplicitLeft = 883
+      object BtnCancela: TSpeedButton
+        Left = 1
+        Top = 1
+        Width = 95
+        Height = 33
+        Cursor = crHandPoint
+        Align = alClient
+        Caption = 'Cancelar'
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -14
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        OnClick = BtnCancelaClick
+        ExplicitLeft = 56
+        ExplicitTop = 8
+        ExplicitWidth = 23
+        ExplicitHeight = 22
+      end
+    end
+    object PnlConfirma: TPanel
+      Left = 784
+      Top = 6
+      Width = 97
+      Height = 35
+      Anchors = [akTop, akRight]
+      Color = clHighlight
+      ParentBackground = False
+      TabOrder = 3
+      ExplicitLeft = 780
+      object BtnConfirma: TSpeedButton
+        Left = 1
+        Top = 1
+        Width = 95
+        Height = 33
+        Cursor = crHandPoint
+        Align = alClient
+        Caption = 'Confirmar'
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -14
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        OnClick = BtnConfirmaClick
+        ExplicitLeft = 56
+        ExplicitTop = 8
+        ExplicitWidth = 23
+        ExplicitHeight = 22
       end
     end
   end
@@ -656,18 +740,116 @@ inherited FrmCadPessoas: TFrmCadPessoas
       ' Source=MySql32;Initial Catalog=sistema'
   end
   object XMLDocument1: TXMLDocument
+    Active = True
+    FileName = 'https://viacep.com.br/ws/18570000/xml/'
     Left = 512
     Top = 16
     DOMVendorDesc = 'MSXML'
   end
-  object SSLIO: TIdSSLIOHandlerSocketOpenSSL
-    MaxLineAction = maException
-    Port = 0
-    DefaultPort = 0
-    SSLOptions.Mode = sslmUnassigned
-    SSLOptions.VerifyMode = []
-    SSLOptions.VerifyDepth = 0
-    Left = 424
-    Top = 16
+  object Qry: TADOQuery
+    Connection = Connection
+    CursorType = ctStatic
+    MaxRecords = 1000
+    BeforePost = QryBeforePost
+    Parameters = <
+      item
+        Name = 'pessoa'
+        Attributes = [paNullable]
+        DataType = ftString
+        NumericScale = 204
+        Precision = 255
+        Size = 255
+        Value = Null
+      end>
+    SQL.Strings = (
+      'select * from pessoas'
+      'where id_pessoa = :pessoa')
+    Left = 816
+    Top = 24
+    object Qryid_pessoa: TAutoIncField
+      FieldName = 'id_pessoa'
+      ReadOnly = True
+    end
+    object Qrydt_cadastro: TDateField
+      FieldName = 'dt_cadastro'
+    end
+    object Qryfl_pf_pj: TIntegerField
+      FieldName = 'fl_pf_pj'
+    end
+    object Qrynm_razaosocial: TWideStringField
+      FieldName = 'nm_razaosocial'
+      Size = 100
+    end
+    object Qrynm_reduzido: TWideStringField
+      FieldName = 'nm_reduzido'
+      Size = 85
+    end
+    object Qrycpf_cnpj: TWideStringField
+      FieldName = 'cpf_cnpj'
+      Size = 14
+    end
+    object Qryrg_ie: TWideStringField
+      FieldName = 'rg_ie'
+      Size = 45
+    end
+    object Qrycep: TWideStringField
+      FieldName = 'cep'
+      Size = 45
+    end
+    object Qrynm_logradouro: TWideStringField
+      FieldName = 'nm_logradouro'
+      Size = 100
+    end
+    object Qrynm_numero: TIntegerField
+      FieldName = 'nm_numero'
+    end
+    object Qrynm_complemento: TWideStringField
+      FieldName = 'nm_complemento'
+      Size = 100
+    end
+    object Qrynm_bairro: TWideStringField
+      FieldName = 'nm_bairro'
+      Size = 100
+    end
+    object Qryid_ibge: TIntegerField
+      FieldName = 'id_ibge'
+    end
+    object Qrynm_cidade: TWideStringField
+      FieldName = 'nm_cidade'
+      Size = 100
+    end
+    object Qrynm_estado: TWideStringField
+      FieldName = 'nm_estado'
+      Size = 2
+    end
+    object Qrynm_telefone1: TWideStringField
+      FieldName = 'nm_telefone1'
+      Size = 45
+    end
+    object Qrynm_telefone2: TWideStringField
+      FieldName = 'nm_telefone2'
+      Size = 45
+    end
+    object Qrynm_email: TWideStringField
+      FieldName = 'nm_email'
+      Size = 100
+    end
+    object Qrynew_tablecol: TWideStringField
+      FieldName = 'new_tablecol'
+      Size = 45
+    end
+    object Qrynm_consumidor: TWideStringField
+      FieldName = 'nm_consumidor'
+      Size = 45
+    end
+    object Qrynm_tipopessoa: TWideStringField
+      FieldName = 'nm_tipopessoa'
+      Size = 10
+    end
+  end
+  object Ds: TDataSource
+    DataSet = Qry
+    Left = 912
+    Top = 32
   end
 end

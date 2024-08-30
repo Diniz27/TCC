@@ -1,4 +1,4 @@
-unit UFrmCliente;
+unit UFrmPessoas;
 
 interface
 
@@ -9,7 +9,7 @@ uses
   Vcl.DBCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids, Data.Win.ADODB;
 
 type
-  TFrmCliente = class(TFrmPadrao)
+  TFrmPessoas = class(TFrmPadrao)
     PnlPesq: TPanel;
     BtnPesq: TSpeedButton;
     CbTipo: TComboBox;
@@ -50,6 +50,9 @@ type
     procedure FormShow(Sender: TObject);
     procedure BtnPesqClick(Sender: TObject);
     procedure BtnExcluiClick(Sender: TObject);
+    procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure DBGrid1DblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -57,7 +60,7 @@ type
   end;
 
 var
-  FrmCliente: TFrmCliente;
+  FrmPessoas: TFrmPessoas;
 
 implementation
 
@@ -65,7 +68,7 @@ implementation
 
 uses UFrmCadCliente, UFrmPrincipal, UFrmCadPessoas;
 
-procedure TFrmCliente.BtnEditarClick(Sender: TObject);
+procedure TFrmPessoas.BtnEditarClick(Sender: TObject);
 begin
   inherited;
   try
@@ -82,10 +85,10 @@ begin
   end;
 end;
 
-procedure TFrmCliente.BtnExcluiClick(Sender: TObject);
+procedure TFrmPessoas.BtnExcluiClick(Sender: TObject);
 begin
   inherited;
-    if MessageDlg('Deseja realmente excluir esse produto?', mtConfirmation, [mbYes,mbNo], 0) = mrYes then
+  if MessageDlg('Deseja realmente excluir esse produto?', mtConfirmation, [mbYes,mbNo], 0) = mrYes then
   begin
     try
       Qry.Delete;
@@ -96,7 +99,7 @@ begin
   end;
 end;
 
-procedure TFrmCliente.BtnNovoClick(Sender: TObject);
+procedure TFrmPessoas.BtnNovoClick(Sender: TObject);
 begin
   inherited;
   try
@@ -113,7 +116,7 @@ begin
   end;
 end;
 
-procedure TFrmCliente.BtnPesqClick(Sender: TObject);
+procedure TFrmPessoas.BtnPesqClick(Sender: TObject);
 begin
   inherited;
 
@@ -144,13 +147,36 @@ begin
   end;
 end;
 
-procedure TFrmCliente.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFrmPessoas.DBGrid1DblClick(Sender: TObject);
+begin
+  inherited;
+  BtnEditar.Click;
+end;
+
+procedure TFrmPessoas.DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+  DataCol: Integer; Column: TColumn; State: TGridDrawState);
+begin
+  inherited;
+  with Sender as TDBGrid do
+  begin
+    if gdSelected in State then
+      Canvas.Brush.Color := clSkyBlue  // Cor de fundo para a linha selecionada
+    else if DataSource.DataSet.RecNo mod 2 = 0 then
+      Canvas.Brush.Color := clWhite  // Cor de fundo para linhas pares
+    else
+      Canvas.Brush.Color := $00F0F0F0;  // Cor de fundo para linhas ímpares (cinza claro)
+    Canvas.FillRect(Rect);
+    DefaultDrawColumnCell(Rect, DataCol, Column, State);
+  end;
+end;
+
+procedure TFrmPessoas.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   inherited;
     FrmPrincipal.MostrarPainel;
 end;
 
-procedure TFrmCliente.FormShow(Sender: TObject);
+procedure TFrmPessoas.FormShow(Sender: TObject);
 begin
   inherited;
   Qry.Open;
