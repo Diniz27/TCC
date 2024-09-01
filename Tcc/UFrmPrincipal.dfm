@@ -29,7 +29,6 @@ object FrmPrincipal: TFrmPrincipal
     BevelKind = bkTile
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 988
     DesignSize = (
       988
       92)
@@ -112,8 +111,6 @@ object FrmPrincipal: TFrmPrincipal
     Align = alClient
     AutoSize = True
     TabOrder = 1
-    ExplicitWidth = 988
-    ExplicitHeight = 583
     object Panel5: TPanel
       Left = 57
       Top = 30
@@ -462,25 +459,6 @@ object FrmPrincipal: TFrmPrincipal
           end
         end
       end
-    end
-    object RLDraw1: TRLDraw
-      Left = 536
-      Top = 62
-      Width = 20
-      Height = 475
-      Angle = 90.000000000000000000
-      Color = clBtnFace
-      DrawKind = dkLine
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clHighlight
-      Font.Height = -12
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentColor = False
-      Pen.Color = clHighlight
-      Pen.Style = psInsideFrame
-      Pen.Width = 2
-      Transparent = False
     end
   end
   object ImageList1: TImageList

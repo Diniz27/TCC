@@ -113,7 +113,7 @@ var
 
 implementation
 
-uses UValidaDados, UFrmProdutos, UFrmCliente;
+uses UValidaDados, UFrmProdutos, UFrmPessoas;
 
 {$R *.dfm}
 
@@ -214,7 +214,7 @@ end;
 procedure TFrmCadPessoas.FormCreate(Sender: TObject);
 begin
   inherited;
-  Qry.Parameters.ParamByName('pessoa').Value := FrmCliente.Qry.FieldByName('id_pessoa').Value;
+  Qry.Parameters.ParamByName('pessoa').Value := FrmPessoas.Qry.FieldByName('id_pessoa').Value;
   Qry.Open;
 end;
 

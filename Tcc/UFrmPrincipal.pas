@@ -6,12 +6,12 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ExtCtrls, Vcl.StdCtrls,
   System.ImageList, Vcl.ImgList, Vcl.Imaging.pngimage, Vcl.Buttons,
-  Vcl.CustomizeDlg, JvComponentBase, JvFormAutoSize, Vcl.ComCtrls,
+  Vcl.CustomizeDlg, Vcl.ComCtrls,
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.Phys.FB, FireDAC.Phys.FBDef, FireDAC.VCLUI.Wait,
   FireDAC.Phys.IBBase, Data.DB, FireDAC.Comp.Client, FireDAC.Phys.MySQL,
-  FireDAC.Phys.MySQLDef, Data.Win.ADODB, RLReport;
+  FireDAC.Phys.MySQLDef, Data.Win.ADODB{, RLReport};
 
 type
   TFrmPrincipal = class(TForm)
@@ -38,7 +38,7 @@ type
     Image4: TImage;
     Panel4: TPanel;
     BtnCliente: TSpeedButton;
-    RLDraw1: TRLDraw;
+//    RLDraw1: TRLDraw;
     procedure PedVendClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure BtnPedidoClick(Sender: TObject);
@@ -136,11 +136,11 @@ begin
   CenterX := Panel1.Width div 2;
   CenterY := Panel1.Height div 2;
   // Define a altura da linha (ajusta considerando o painel superior)
-  RLDraw1.Height := Panel1.Height - (PnlTopo.Height * 2);
+//  RLDraw1.Height := Panel1.Height - (PnlTopo.Height * 2);
   // Centraliza a linha horizontalmente
-  RLDraw1.Left := CenterX - (RLDraw1.Width div 2); // Centraliza horizontalmente
+//  RLDraw1.Left := CenterX - (RLDraw1.Width div 2); // Centraliza horizontalmente
   // Define a posição verticalmente no centro
-  RLDraw1.Top := CenterY - (RLDraw1.Height div 2);
+//  RLDraw1.Top := CenterY - (RLDraw1.Height div 2);
 
 end;
 

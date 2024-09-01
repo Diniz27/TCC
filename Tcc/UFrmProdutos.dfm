@@ -1,12 +1,17 @@
 inherited FrmProdutos: TFrmProdutos
   Caption = 'Central de Produtos'
   ClientWidth = 1042
+  StyleElements = [seFont, seClient, seBorder]
   OnShow = FormShow
-  ExplicitWidth = 1054
+  ExplicitWidth = 1058
   TextHeight = 15
   inherited PnlTopo: TPanel
     Width = 1042
-    ExplicitWidth = 1038
+    StyleElements = [seFont, seClient, seBorder]
+    ExplicitWidth = 1042
+    inherited Label4: TLabel
+      StyleElements = [seFont, seClient, seBorder]
+    end
     inherited Image4: TImage
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000000320000
@@ -48,6 +53,7 @@ inherited FrmProdutos: TFrmProdutos
     inherited Label2: TLabel
       Width = 64
       Caption = 'Produtos'
+      StyleElements = [seFont, seClient, seBorder]
       ExplicitWidth = 64
     end
     inherited BtnClose: TSpeedButton
@@ -59,9 +65,10 @@ inherited FrmProdutos: TFrmProdutos
     Top = 122
     Width = 1042
     Height = 320
+    StyleElements = [seFont, seClient, seBorder]
     ExplicitTop = 122
-    ExplicitWidth = 1038
-    ExplicitHeight = 318
+    ExplicitWidth = 1042
+    ExplicitHeight = 320
     object DBGrid1: TDBGrid
       Left = 0
       Top = 0
@@ -176,7 +183,6 @@ inherited FrmProdutos: TFrmProdutos
     Color = clWhite
     ParentBackground = False
     TabOrder = 2
-    ExplicitWidth = 1038
     DesignSize = (
       1042
       57)
@@ -225,7 +231,6 @@ inherited FrmProdutos: TFrmProdutos
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitWidth = 453
     end
     object PnlNovo: TPanel
       Left = 732
@@ -236,7 +241,6 @@ inherited FrmProdutos: TFrmProdutos
       Color = clHighlight
       ParentBackground = False
       TabOrder = 2
-      ExplicitLeft = 728
       object BtnNovo: TSpeedButton
         Left = 1
         Top = 1
@@ -268,7 +272,6 @@ inherited FrmProdutos: TFrmProdutos
       Color = 5755391
       ParentBackground = False
       TabOrder = 3
-      ExplicitLeft = 831
       object BtnEditar: TSpeedButton
         Left = 1
         Top = 1
@@ -300,7 +303,6 @@ inherited FrmProdutos: TFrmProdutos
       Color = clMaroon
       ParentBackground = False
       TabOrder = 4
-      ExplicitLeft = 933
       object BtnExclui: TSpeedButton
         Left = 1
         Top = 1
@@ -367,10 +369,5 @@ inherited FrmProdutos: TFrmProdutos
       FieldName = 'nm_obs'
       Size = 45
     end
-  end
-  inherited Connection: TADOConnection
-    ConnectionString = 
-      'Provider=MSDASQL.1;Persist Security Info=False;User ID=root;Data' +
-      ' Source=MySql32;Initial Catalog=sistema'
   end
 end

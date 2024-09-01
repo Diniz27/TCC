@@ -2,13 +2,18 @@ inherited FrmCadProduto: TFrmCadProduto
   Caption = 'Central Cadastro de Produtos'
   ClientHeight = 542
   ClientWidth = 1069
+  StyleElements = [seFont, seClient, seBorder]
   OnCreate = FormCreate
-  ExplicitWidth = 1081
-  ExplicitHeight = 580
+  ExplicitWidth = 1085
+  ExplicitHeight = 581
   TextHeight = 15
   inherited PnlTopo: TPanel
     Width = 1069
-    ExplicitWidth = 834
+    StyleElements = [seFont, seClient, seBorder]
+    ExplicitWidth = 1069
+    inherited Label4: TLabel
+      StyleElements = [seFont, seClient, seBorder]
+    end
     inherited Image4: TImage
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000000320000
@@ -50,17 +55,20 @@ inherited FrmCadProduto: TFrmCadProduto
     inherited Label2: TLabel
       Width = 119
       Caption = 'Cad. de Produtos'
+      StyleElements = [seFont, seClient, seBorder]
       ExplicitWidth = 119
     end
     inherited BtnClose: TSpeedButton
       Left = 1003
+      ExplicitLeft = 1003
     end
   end
   inherited PnlCentral: TPanel
     Width = 1069
     Height = 477
-    ExplicitWidth = 834
-    ExplicitHeight = 375
+    StyleElements = [seFont, seClient, seBorder]
+    ExplicitWidth = 1069
+    ExplicitHeight = 477
     object Label1: TLabel
       Left = 20
       Top = 21
@@ -375,11 +383,6 @@ inherited FrmCadProduto: TFrmCadProduto
   inherited ImageList1: TImageList
     Left = 560
     Top = 8
-  end
-  inherited Connection: TADOConnection
-    ConnectionString = 
-      'Provider=MSDASQL.1;Persist Security Info=False;User ID=root;Data' +
-      ' Source=MySql32;Initial Catalog=sistema'
   end
   object Qry: TADOQuery
     Connection = Connection

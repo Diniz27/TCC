@@ -1,16 +1,21 @@
 inherited FrmPessoas: TFrmPessoas
   Caption = 'FrmPessoas'
-  ClientHeight = 442
   ClientWidth = 1042
+  StyleElements = [seFont, seClient, seBorder]
   OnShow = FormShow
-  ExplicitWidth = 1054
+  ExplicitLeft = -258
+  ExplicitWidth = 1058
   TextHeight = 15
   inherited PnlTopo: TPanel
     Width = 1042
-    ExplicitWidth = 1038
+    StyleElements = [seFont, seClient, seBorder]
+    ExplicitWidth = 1042
     DesignSize = (
       1038
       61)
+    inherited Label4: TLabel
+      StyleElements = [seFont, seClient, seBorder]
+    end
     inherited Image4: TImage
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000000320000
@@ -67,6 +72,7 @@ inherited FrmPessoas: TFrmPessoas
     inherited Label2: TLabel
       Width = 55
       Caption = 'Pessoas'
+      StyleElements = [seFont, seClient, seBorder]
       ExplicitWidth = 55
     end
     inherited BtnClose: TSpeedButton
@@ -78,14 +84,15 @@ inherited FrmPessoas: TFrmPessoas
     Top = 122
     Width = 1042
     Height = 320
+    StyleElements = [seFont, seClient, seBorder]
     ExplicitTop = 122
-    ExplicitWidth = 1038
-    ExplicitHeight = 319
+    ExplicitWidth = 1042
+    ExplicitHeight = 320
     object DBGrid1: TDBGrid
       Left = 0
       Top = 0
       Width = 1042
-      Height = 319
+      Height = 320
       Align = alClient
       BorderStyle = bsNone
       DataSource = Ds
@@ -184,7 +191,6 @@ inherited FrmPessoas: TFrmPessoas
     Color = clWhite
     ParentBackground = False
     TabOrder = 2
-    ExplicitWidth = 1038
     DesignSize = (
       1042
       57)
@@ -325,11 +331,6 @@ inherited FrmPessoas: TFrmPessoas
         ExplicitTop = 8
       end
     end
-  end
-  inherited Connection: TADOConnection
-    ConnectionString = 
-      'Provider=MSDASQL.1;Persist Security Info=False;User ID=root;Data' +
-      ' Source=MySql32;Initial Catalog=sistema'
   end
   object Qry: TADOQuery
     Connection = Connection

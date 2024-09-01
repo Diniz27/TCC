@@ -2,13 +2,18 @@ inherited FrmCadPessoas: TFrmCadPessoas
   Caption = 'FrmCadPessoas'
   ClientHeight = 740
   ClientWidth = 1012
+  StyleElements = [seFont, seClient, seBorder]
   OnCreate = FormCreate
-  ExplicitWidth = 1024
-  ExplicitHeight = 778
+  ExplicitWidth = 1028
+  ExplicitHeight = 779
   TextHeight = 15
   inherited PnlTopo: TPanel
     Width = 1012
-    ExplicitWidth = 1008
+    StyleElements = [seFont, seClient, seBorder]
+    ExplicitWidth = 1012
+    inherited Label4: TLabel
+      StyleElements = [seFont, seClient, seBorder]
+    end
     inherited Image4: TImage
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000000320000
@@ -65,6 +70,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
     inherited Label2: TLabel
       Width = 110
       Caption = 'Cad. de Pessoas'
+      StyleElements = [seFont, seClient, seBorder]
       ExplicitWidth = 110
     end
     inherited BtnClose: TSpeedButton
@@ -75,8 +81,11 @@ inherited FrmCadPessoas: TFrmCadPessoas
   inherited PnlCentral: TPanel
     Width = 1012
     Height = 675
-    ExplicitWidth = 1008
-    ExplicitHeight = 674
+    StyleElements = [seFont, seClient, seBorder]
+    ExplicitLeft = 0
+    ExplicitTop = 65
+    ExplicitWidth = 1012
+    ExplicitHeight = 675
     object Label1: TLabel
       Left = 18
       Top = 21
@@ -116,7 +125,6 @@ inherited FrmCadPessoas: TFrmCadPessoas
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitWidth = 988
       object Label3: TLabel
         Left = 17
         Top = 11
@@ -349,8 +357,6 @@ inherited FrmCadPessoas: TFrmCadPessoas
       Align = alBottom
       Anchors = [akLeft, akTop, akRight, akBottom]
       TabOrder = 1
-      ExplicitWidth = 1008
-      ExplicitHeight = 362
       object Label12: TLabel
         Left = 18
         Top = 17
@@ -678,7 +684,6 @@ inherited FrmCadPessoas: TFrmCadPessoas
       Anchors = [akTop, akRight]
       ParentBackground = False
       TabOrder = 2
-      ExplicitLeft = 883
       object BtnCancela: TSpeedButton
         Left = 1
         Top = 1
@@ -710,7 +715,6 @@ inherited FrmCadPessoas: TFrmCadPessoas
       Color = clHighlight
       ParentBackground = False
       TabOrder = 3
-      ExplicitLeft = 780
       object BtnConfirma: TSpeedButton
         Left = 1
         Top = 1
@@ -733,11 +737,6 @@ inherited FrmCadPessoas: TFrmCadPessoas
         ExplicitHeight = 22
       end
     end
-  end
-  inherited Connection: TADOConnection
-    ConnectionString = 
-      'Provider=MSDASQL.1;Persist Security Info=False;User ID=root;Data' +
-      ' Source=MySql32;Initial Catalog=sistema'
   end
   object XMLDocument1: TXMLDocument
     Active = True

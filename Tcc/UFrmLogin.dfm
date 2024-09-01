@@ -27,8 +27,6 @@ object FrmLogin: TFrmLogin
     Height = 392
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 665
-    ExplicitHeight = 353
     object Image1: TImage
       Left = 104
       Top = 96
@@ -303,7 +301,7 @@ object FrmLogin: TFrmLogin
   object QryLogin: TADOQuery
     ConnectionString = 
       'Provider=MSDASQL.1;Persist Security Info=False;User ID=root;Data' +
-      ' Source=MySql32;Initial Catalog=sistema'
+      ' Source=MySQL;Initial Catalog=sistema'
     CursorType = ctStatic
     MaxRecords = 1000
     Parameters = <>

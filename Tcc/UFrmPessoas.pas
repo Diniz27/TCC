@@ -53,6 +53,7 @@ type
     procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure BtnCloseClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -67,6 +68,12 @@ implementation
 {$R *.dfm}
 
 uses UFrmCadCliente, UFrmPrincipal, UFrmCadPessoas;
+
+procedure TFrmPessoas.BtnCloseClick(Sender: TObject);
+begin
+  inherited;
+  FrmPrincipal.MostrarPainel;
+end;
 
 procedure TFrmPessoas.BtnEditarClick(Sender: TObject);
 begin
@@ -173,7 +180,7 @@ end;
 procedure TFrmPessoas.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   inherited;
-    FrmPrincipal.MostrarPainel;
+//    FrmPrincipal.MostrarPainel;
 end;
 
 procedure TFrmPessoas.FormShow(Sender: TObject);

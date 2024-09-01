@@ -26,7 +26,6 @@ object FrmPadrao: TFrmPadrao
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 838
     DesignSize = (
       838
       61)
@@ -91,8 +90,8 @@ object FrmPadrao: TFrmPadrao
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 1
-    ExplicitWidth = 838
-    ExplicitHeight = 376
+    ExplicitLeft = -80
+    ExplicitTop = 8
   end
   object ImageList1: TImageList
     Height = 50
@@ -1401,11 +1400,11 @@ object FrmPadrao: TFrmPadrao
       000000000000000000000000000000000000000000000000000000000000}
   end
   object Connection: TADOConnection
-    Connected = True
     ConnectionString = 
       'Provider=MSDASQL.1;Persist Security Info=False;User ID=root;Data' +
-      ' Source=MySql32;Initial Catalog=sistema'
+      ' Source=MySQL;Initial Catalog=sistema'
     LoginPrompt = False
+    Provider = 'MSDASQL.1'
     Left = 688
     Top = 8
   end

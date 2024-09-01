@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UFrmPadrao, System.ImageList,
   Vcl.ImgList, Vcl.Buttons, Vcl.ExtCtrls, Vcl.StdCtrls, Data.DB, Vcl.Grids,
-  Vcl.DBGrids, JvDataSource, Data.Win.ADODB, Vcl.Imaging.pngimage;
+  Vcl.DBGrids, Data.Win.ADODB, Vcl.Imaging.pngimage;
 
 type
   TFrmProdutos = class(TFrmPadrao)
