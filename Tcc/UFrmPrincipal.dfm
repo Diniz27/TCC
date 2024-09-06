@@ -29,6 +29,7 @@ object FrmPrincipal: TFrmPrincipal
     BevelKind = bkTile
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitWidth = 988
     DesignSize = (
       988
       92)
@@ -111,6 +112,8 @@ object FrmPrincipal: TFrmPrincipal
     Align = alClient
     AutoSize = True
     TabOrder = 1
+    ExplicitWidth = 988
+    ExplicitHeight = 583
     object Panel5: TPanel
       Left = 57
       Top = 30

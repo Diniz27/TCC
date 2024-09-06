@@ -63,7 +63,7 @@ implementation
 {$R *.dfm}
 
 uses UFrmPedVend, UFrmCadCliente, UFrmLogin, UFrmCliente, UFrmUsuarios,
-  UDmPrincipal, UFrmProdutos, UFrmPessoas;
+  UDmPrincipal, UFrmProdutos, UFrmPessoas, UFrmPedidos;
 
 procedure TFrmPrincipal.BtnClienteClick(Sender: TObject);
 begin
@@ -80,10 +80,10 @@ procedure TFrmPrincipal.BtnPedidoClick(Sender: TObject);
 begin
   try
     EsconderPainel;
-    FrmPedVend := TFrmPedVend.Create(Self);
-    FrmPedVend.Show;
+    FrmPedidos := TFrmPedidos.Create(Self);
+    FrmPedidos.Show;
   Except
-    FrmPedVend.Free;
+    FrmPedidos.Free;
   end;
 end;
 
@@ -145,19 +145,19 @@ begin
 end;
 
 procedure TFrmPrincipal.FormResize(Sender: TObject);
-//var
-//  CenterX, CenterY: Integer;
+var
+  CenterX, CenterY: Integer;
 begin
   Panel5.Left := (Panel1.Width div 4) - (Panel5.Width div 2);
 
   Panel5.Top := (Panel1.Height - Panel5.Height) div 2;
 
 //    // Calcula o centro do painel
-//  CenterX := Panel1.Width div 2;
-//  CenterY := Panel1.Height div 2;
+  CenterX := Panel1.Width div 2;
+  CenterY := Panel1.Height div 2;
 //
 //  // Define a altura da linha (ajusta considerando o painel superior)
-////  RLDraw1.Height := Panel1.Height - (PnlTopo.Height * 2);
+//  RLDraw1.Height := Panel1.Height - (PnlTopo.Height * 2);
 //
 //  // Centraliza a linha horizontalmente
 //  RLDraw1.Left := CenterX - (RLDraw1.Width div 2); // Centraliza horizontalmente
