@@ -384,56 +384,26 @@ inherited FrmCadProduto: TFrmCadProduto
     Left = 560
     Top = 8
   end
-  object Qry: TADOQuery
-    Connection = Connection
-    CursorType = ctStatic
-    Parameters = <
-      item
-        Name = 'id_prod'
-        Attributes = [paNullable]
-        DataType = ftString
-        NumericScale = 4
-        Precision = 255
-        Size = 255
-        Value = Null
-      end>
-    SQL.Strings = (
-      'select * from produtos where id_produto = :id_prod'
-      'order by id_produto asc')
-    Left = 472
-    Top = 16
-    object Qryid_produto: TIntegerField
-      FieldName = 'id_produto'
-    end
-    object Qrynm_produto: TWideStringField
-      FieldName = 'nm_produto'
-      Size = 45
-    end
-    object Qryvl_produto: TFloatField
-      FieldName = 'vl_produto'
-      DisplayFormat = 'R$###,##0.00'
-    end
-    object Qryid_fornecedor: TIntegerField
-      FieldName = 'id_fornecedor'
-    end
-    object Qryid_unimedida: TIntegerField
-      FieldName = 'id_unimedida'
-    end
-    object Qryqn_estoque: TIntegerField
-      FieldName = 'qn_estoque'
-    end
-    object Qryqn_peso: TFloatField
-      FieldName = 'qn_peso'
-      DisplayFormat = '###.##0.00'
-    end
-    object Qrynm_obs: TWideStringField
-      FieldName = 'nm_obs'
-      Size = 45
-    end
-  end
   object Ds: TDataSource
     DataSet = Qry
     Left = 432
     Top = 16
+  end
+  object Qry: TFDQuery
+    CachedUpdates = True
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from produtos where id_produto = :id_prod'
+      'order by id_produto asc'
+      '')
+    Left = 648
+    Top = 16
+    ParamData = <
+      item
+        Name = 'ID_PROD'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
   end
 end

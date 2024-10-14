@@ -6,7 +6,12 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UFrmPadrao, System.ImageList,
   Vcl.ImgList, Vcl.Buttons, Vcl.ExtCtrls, Vcl.StdCtrls, Data.DB, Vcl.Grids,
-  Vcl.DBGrids, Data.Win.ADODB, Vcl.Imaging.pngimage;
+  Vcl.DBGrids, Data.Win.ADODB, Vcl.Imaging.pngimage, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf,
+  FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
+  FireDAC.Phys.FB, FireDAC.Phys.FBDef, FireDAC.VCLUI.Wait, FireDAC.Stan.Param,
+  FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client, FireDAC.Phys.IBBase;
 
 type
   TFrmProdutos = class(TFrmPadrao)
@@ -20,17 +25,9 @@ type
     PnlEditar: TPanel;
     BtnEditar: TSpeedButton;
     Ds: TDataSource;
-    Qry: TADOQuery;
     PnlExclui: TPanel;
     BtnExclui: TSpeedButton;
-    Qryid_produto: TAutoIncField;
-    Qrynm_produto: TWideStringField;
-    Qryvl_produto: TFloatField;
-    Qryid_fornecedor: TIntegerField;
-    Qryid_unimedida: TIntegerField;
-    Qryqn_estoque: TIntegerField;
-    Qryqn_peso: TFloatField;
-    Qrynm_obs: TWideStringField;
+    Qry: TFDQuery;
     procedure FormShow(Sender: TObject);
     procedure BtnPesquisaClick(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
@@ -127,7 +124,7 @@ begin
     Qry.Close;
     Qry.SQL.Clear;
     Qry.SQL.Add('SELECT * FROM sistema.PRODUTOS WHERE ID_PRODUTO = :id_prod');
-    Qry.Parameters.ParamByName('id_prod').Value :=  StrToInt(EdtPesq.text);
+    Qry.ParamByName('id_prod').Value :=  StrToInt(EdtPesq.text);
     Qry.Open;
   end
   else if CbTipo.ItemIndex = 1 then
@@ -135,7 +132,7 @@ begin
     Qry.Close;
     Qry.SQL.Clear;
     Qry.SQL.Add('SELECT * FROM sistema.PRODUTOS WHERE NM_PRODUTO like :nm_prod');
-    Qry.Parameters.ParamByName('nm_prod').Value := '%' + EdtPesq.text + '%';
+    Qry.ParamByName('nm_prod').Value := '%' + EdtPesq.text + '%';
     Qry.Open;
   end;
 end;

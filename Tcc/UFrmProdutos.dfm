@@ -332,42 +332,14 @@ inherited FrmProdutos: TFrmProdutos
     Left = 496
     Top = 10
   end
-  object Qry: TADOQuery [5]
-    Connection = Connection
-    CursorType = ctStatic
-    MaxRecords = 1000
-    Parameters = <>
+  object Qry: TFDQuery
+    CachedUpdates = True
+    Connection = FDConnection1
     SQL.Strings = (
       'select * from produtos'
-      'order by id_produto')
-    Left = 456
-    Top = 8
-    object Qryid_produto: TAutoIncField
-      FieldName = 'id_produto'
-      ReadOnly = True
-    end
-    object Qrynm_produto: TWideStringField
-      FieldName = 'nm_produto'
-      Size = 45
-    end
-    object Qryvl_produto: TFloatField
-      FieldName = 'vl_produto'
-    end
-    object Qryid_fornecedor: TIntegerField
-      FieldName = 'id_fornecedor'
-    end
-    object Qryid_unimedida: TIntegerField
-      FieldName = 'id_unimedida'
-    end
-    object Qryqn_estoque: TIntegerField
-      FieldName = 'qn_estoque'
-    end
-    object Qryqn_peso: TFloatField
-      FieldName = 'qn_peso'
-    end
-    object Qrynm_obs: TWideStringField
-      FieldName = 'nm_obs'
-      Size = 45
-    end
+      'order by id_produto'
+      '')
+    Left = 544
+    Top = 16
   end
 end

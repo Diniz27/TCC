@@ -90,8 +90,6 @@ object FrmPadrao: TFrmPadrao
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 1
-    ExplicitLeft = -80
-    ExplicitTop = 8
   end
   object ImageList1: TImageList
     Height = 50
@@ -1399,13 +1397,19 @@ object FrmPadrao: TFrmPadrao
       000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFF000000000000000
       000000000000000000000000000000000000000000000000000000000000}
   end
-  object Connection: TADOConnection
-    ConnectionString = 
-      'Provider=MSDASQL.1;Persist Security Info=False;User ID=root;Data' +
-      ' Source=MySQL;Initial Catalog=sistema'
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Database=C:\Users\robso\Desktop\Pojeto_TCC\BD\SISTEMA.FDB'
+      'User_Name=sysdba'
+      'Password=1234'
+      'DriverID=FB')
+    Connected = True
     LoginPrompt = False
-    Provider = 'MSDASQL.1'
-    Left = 688
-    Top = 8
+    Left = 472
+    Top = 9
+  end
+  object FDPhysFBDriverLink1: TFDPhysFBDriverLink
+    Left = 512
+    Top = 9
   end
 end

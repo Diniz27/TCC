@@ -2,15 +2,24 @@ inherited FrmCadPedido: TFrmCadPedido
   Caption = 'FrmCadPedido'
   ClientHeight = 569
   ClientWidth = 1024
+  StyleElements = [seFont, seClient, seBorder]
   OnShow = FormShow
-  ExplicitWidth = 1036
-  ExplicitHeight = 607
+  ExplicitWidth = 1040
+  ExplicitHeight = 608
   TextHeight = 15
   inherited PnlTopo: TPanel
     Width = 1024
-    ExplicitWidth = 834
+    StyleElements = [seFont, seClient, seBorder]
+    ExplicitWidth = 1024
+    inherited Label4: TLabel
+      StyleElements = [seFont, seClient, seBorder]
+    end
+    inherited Label2: TLabel
+      StyleElements = [seFont, seClient, seBorder]
+    end
     inherited BtnClose: TSpeedButton
       Left = 954
+      ExplicitLeft = 954
     end
   end
   inherited PnlCentral: TPanel
@@ -20,10 +29,9 @@ inherited FrmCadPedido: TFrmCadPedido
     Font.Color = clWhite
     ParentBackground = False
     ParentFont = False
-    ExplicitLeft = 0
-    ExplicitTop = 65
-    ExplicitWidth = 834
-    ExplicitHeight = 375
+    StyleElements = [seFont, seClient, seBorder]
+    ExplicitWidth = 1024
+    ExplicitHeight = 504
     object PageControl1: TPageControl
       Left = 0
       Top = 46
@@ -33,8 +41,6 @@ inherited FrmCadPedido: TFrmCadPedido
       Align = alBottom
       Anchors = [akLeft, akTop, akRight, akBottom]
       TabOrder = 0
-      ExplicitWidth = 838
-      ExplicitHeight = 330
       object TabCliente: TTabSheet
         Caption = 'TabCliente'
         OnShow = TabClienteShow
@@ -349,7 +355,6 @@ inherited FrmCadPedido: TFrmCadPedido
       Anchors = [akTop, akRight]
       ParentBackground = False
       TabOrder = 4
-      ExplicitLeft = 741
       object BtnCancela: TSpeedButton
         Left = 1
         Top = 1

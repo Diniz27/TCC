@@ -1,14 +1,19 @@
 inherited FrmPedidos: TFrmPedidos
   Caption = 'FrmPedidos'
   ClientWidth = 1027
-  ExplicitWidth = 1039
-  ExplicitHeight = 479
+  StyleElements = [seFont, seClient, seBorder]
+  ExplicitWidth = 1043
   TextHeight = 15
   inherited PnlTopo: TPanel
     Width = 1027
+    StyleElements = [seFont, seClient, seBorder]
+    ExplicitWidth = 1027
     DesignSize = (
       1023
       61)
+    inherited Label4: TLabel
+      StyleElements = [seFont, seClient, seBorder]
+    end
     inherited Image4: TImage
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -66,25 +71,27 @@ inherited FrmPedidos: TFrmPedidos
     inherited Label2: TLabel
       Width = 55
       Caption = 'Pedidos'
+      StyleElements = [seFont, seClient, seBorder]
       ExplicitWidth = 55
     end
     inherited BtnClose: TSpeedButton
       Left = 957
+      ExplicitLeft = 957
     end
   end
   inherited PnlCentral: TPanel
     Top = 137
     Width = 1027
-    Height = 304
-    ExplicitLeft = 0
-    ExplicitTop = 256
+    Height = 305
+    StyleElements = [seFont, seClient, seBorder]
+    ExplicitTop = 137
     ExplicitWidth = 1027
-    ExplicitHeight = 185
+    ExplicitHeight = 305
     object DBGrid1: TDBGrid
       Left = 0
       Top = 0
       Width = 1027
-      Height = 304
+      Height = 305
       Align = alClient
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET

@@ -6,7 +6,12 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UFrmPadrao, System.ImageList,
   Vcl.ImgList, Vcl.Buttons, Vcl.ExtCtrls, Vcl.StdCtrls, Data.DB, Data.Win.ADODB,
-  Vcl.Mask, Vcl.DBCtrls, Vcl.Imaging.pngimage;
+  Vcl.Mask, Vcl.DBCtrls, Vcl.Imaging.pngimage, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf,
+  FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
+  FireDAC.Phys.FB, FireDAC.Phys.FBDef, FireDAC.VCLUI.Wait, FireDAC.Phys.IBBase,
+  FireDAC.Comp.Client, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,
+  FireDAC.DApt, FireDAC.Comp.DataSet;
 
 type
   TFrmCadProduto = class(TFrmPadrao)
@@ -14,7 +19,6 @@ type
     BtnCancela: TSpeedButton;
     PnlConfirma: TPanel;
     BtnConfirma: TSpeedButton;
-    Qry: TADOQuery;
     Panel1: TPanel;
     Label1: TLabel;
     DBEdit1: TDBEdit;
@@ -34,14 +38,7 @@ type
     DBEdit7: TDBEdit;
     Ds: TDataSource;
     DBLookupComboBox3: TDBLookupComboBox;
-    Qryid_produto: TIntegerField;
-    Qrynm_produto: TWideStringField;
-    Qryvl_produto: TFloatField;
-    Qryid_fornecedor: TIntegerField;
-    Qryid_unimedida: TIntegerField;
-    Qryqn_estoque: TIntegerField;
-    Qryqn_peso: TFloatField;
-    Qrynm_obs: TWideStringField;
+    Qry: TFDQuery;
     procedure FormCreate(Sender: TObject);
     procedure BtnConfirmaClick(Sender: TObject);
     procedure BtnCancelaClick(Sender: TObject);
@@ -107,7 +104,7 @@ end;
 procedure TFrmCadProduto.FormCreate(Sender: TObject);
 begin
   inherited;
-  Qry.Parameters.ParamByName('id_prod').Value := FrmProdutos.Qry.FieldByName('id_produto').Value;
+  Qry.ParamByName('id_prod').Value := FrmProdutos.Qry.FieldByName('id_produto').Value;
   Qry.Open;
 end;
 
